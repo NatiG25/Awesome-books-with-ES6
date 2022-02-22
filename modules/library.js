@@ -1,33 +1,32 @@
 const list = document.getElementById('book_list');
-const _add_book = document.getElementById('_add_book');
+const AddBook = document.getElementById('AddBook');
 
-export default class book_Collection {
-    
-    constructor(books_container) {
-        this.books = [];
-        this.books_container = books_container;
-        this._storage = false;
-        this._check_storage('localStorage');
-        this._init_data();
-        this.books.forEach((book) => this.add_to_page(book));
+export default class Library {
+    constructor(BooksContainer) {
+      this.books = [];
+      this.BooksContainer = BooksContainer;
+      this._storage = false;
+      this._check_storage('localStorage');
+      this._init_data();
+      this.books.forEach((book) => this.add_to_page(book));
     }
 
     add_to_collection(data) {
-        const { id, title, author } = data;
-        this.books.push({
-            id,
-            title,
-            author,
-        });
+      const { id, title, author } = data;
+      this.books.push({
+          id,
+          title,
+          author,
+      });
 
-        this._u_storage();
-        this.add_to_page(data);
+      this._u_storage();
+      this.add_to_page(data);
     }
 
     add_to_page(data) {
         const { id, title, author } = data;
 
-        this.books_container.innerHTML += `
+        this.BooksContainer.innerHTML += `
     <li id ="${id}">
     <div class="_title">
       <h3>"${title}"</h3>
@@ -39,7 +38,7 @@ export default class book_Collection {
     </li>
     `;
 
-        this.updateEventListeners(this.books_container);
+        this.updateEventListeners(this.BooksContainer);
     }
 
     updateEventListeners(element = document) {
@@ -89,21 +88,21 @@ export default class book_Collection {
     }
 }
 
-const book_collection = new book_Collection(list);
+const bookCollection = new Library(list);
 
-_add_book.addEventListener('submit', (e) => {
+AddBook.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const id = Date.now().toString();
-    const title = _add_book.title.value.trim();
-    const author = _add_book.author.value.trim();
+    const title = AddBook.title.value.trim();
+    const author = AddBook.author.value.trim();
 
-    book_collection.add_to_collection({
+    bookCollection.add_to_collection({
         id,
         title,
         author,
     });
 
-    _add_book.title.value = '';
-    _add_book.author.value = '';
+    AddBook.title.value = '';
+    AddBook.author.value = '';
 });
