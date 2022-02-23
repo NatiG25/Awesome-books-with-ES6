@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Awesome - Books</title>
+</head>
+
+<body onload="date">
+    <header>
+        <nav id="navbar">
+            <h1>Awesome Books</h1>
+            <ul id="menu">
+                <li><a id="link_list" href="#">List</a></li>
+                <li><a id="add_link" href="#">Add</a></li>
+                <li><a id="contact_link" href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="date"></div>
+        <section id="section_list" class="book_container">
+            <h1>All awesome books</h1>
+            <ul id="book_list">
+            </ul>
+        </section>
+        <section id="add_section" class="_display_f_">
+            <h1>Add a new book</h1>
+            <form id="AddBook">
+                <input type="text" name="title" placeholder="Title" />
+                <input type="text" name="author" placeholder="Author" />
+                <button type="submit" id="AddBtn">Add</button>
+            </form>
+        </section>
+        <section id="contact_section" class="_display_f_">
+            <h1>Contact information</h1>
+            <div class="contact_info_container">
+                <p>
+                    Do have any question or you just want to say "Hello"?
+                    <br>
+                    You can reach out to us!
+                </p>
+                <ul>
+                    <li>Our email: mail@mail.com</li>
+                    <li>Our phone number: +000372989076</li>
+                    <li>Our address: main street 22, 84503 city, country</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; copyright @ Nati 2022</p>
+    </footer>
+    <script src="./index.js" type="module"></script>
+</body>
+
+</html>
