@@ -5,13 +5,13 @@ export default class Library {
   constructor(BooksContainer) {
     this.books = [];
     this.BooksContainer = BooksContainer;
-    this._storage = false;
-    this._check_storage('localStorage');
-    this._init_data();
-    this.books.forEach((book) => this.add_to_page(book));
+    this.Storage = false;
+    this.CheckStorage('localStorage');
+    this.InitData();
+    this.books.forEach((book) => this.addToPage(book));
   }
 
-  add_to_collection(data) {
+  addToCollection(data) {
     const { id, title, author } = data;
     this.books.push({
       id,
@@ -19,11 +19,11 @@ export default class Library {
       author,
     });
 
-    this._u_storage();
-    this.add_to_page(data);
+    this.uStorage();
+    this.addToPage(data);
   }
 
-  add_to_page(data) {
+  addToPage(data) {
     const { id, title, author } = data;
 
     this.BooksContainer.innerHTML += `
@@ -34,7 +34,7 @@ export default class Library {
       <div class="_author">
       <p><b><i>By : </b>${author}</i></p>
       </div>
-      <button class="rm_book">Remove</button>
+      <button class="rmBook">Remove</button>
     </li>
     `;
 
@@ -42,24 +42,24 @@ export default class Library {
   }
 
   updateEventListeners(element = document) {
-    const _rm_btn = element.querySelectorAll('.rm_book');
+    const rmBtn = element.querySelectorAll('.rmBook');
 
-    _rm_btn.forEach((_rmBtn) => {
-      _rmBtn.addEventListener('click', (e) => {
+    rmBtn.forEach((RmBtn) => {
+      RmBtn.addEventListener('click', (e) => {
         const { parentNode } = e.target;
-        this.rm_book(parentNode.id);
+        this.rmBook(parentNode.id);
         parentNode.remove();
       });
     });
   }
 
-  rm_book(id) {
-    this.books = this.books.filter((book) => book.id = id === false);
-    this._u_storage();
+  rmBook(id) {
+    this.books = this.books.filter((book) => book.id === id);
+    this.uStorage();
   }
 
-  _init_data() {
-    if (this._storage) {
+  InitData() {
+    if (this.Storage) {
       const localData = window.localStorage.getItem('books');
       if (localData) {
         this.books = JSON.parse(localData);
@@ -67,21 +67,21 @@ export default class Library {
     }
   }
 
-  _check_storage(type) {
+  CheckStorage(type) {
     let storage;
     try {
       storage = window[type];
       const st = '_test_storage_';
       storage.setItem(st, st);
       storage.rm_item(st);
-      this._storage = true;
+      this.Storage = true;
     } catch (e) {
-      this._storage = false;
+      this.Storage = false;
     }
   }
 
-  _u_storage() {
-    if (this._storage) {
+  uStorage() {
+    if (this.Storage) {
       const storage = window.localStorage;
       storage.setItem('books', JSON.stringify(this.books));
     }
@@ -97,7 +97,7 @@ AddBook.addEventListener('submit', (e) => {
   const title = AddBook.title.value.trim();
   const author = AddBook.author.value.trim();
 
-  bookCollection.add_to_collection({
+  bookCollection.addToCollection({
     id,
     title,
     author,

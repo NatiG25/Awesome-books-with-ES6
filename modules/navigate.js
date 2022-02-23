@@ -1,4 +1,4 @@
-const navigate = [
+export const navigate = [
   {
     link: 'link_list',
     target_ID: 'section_list',
@@ -13,7 +13,7 @@ const navigate = [
   },
 ];
 
-const navigationLinks = () => {
+export const navigationLinks = () => {
   navigate.forEach((navigation) => {
     const link = document.getElementById(navigation.link);
 
@@ -30,4 +30,3 @@ const navigationLinks = () => {
     });
   });
 };
-export { navigate, navigationLinks };
