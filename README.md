@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://natig25.github.io/Awesome-books-with-ES6/)
+[Live Demo Link](http://127.0.0.1:5500/index.html)
 
 ## Authors
 
