@@ -1,6 +1,6 @@
 # Awesome-books-with-ES6
 
-> Rewrote Awesome books using ES6.
+> In this website the user can store books names and the author's name. The names will be stored as a list on a separate page of the website.
 
 
 ## Built With
