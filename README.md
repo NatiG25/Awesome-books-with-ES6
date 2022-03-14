@@ -2,7 +2,7 @@
 
 # Awesome-books-with-ES6
 
-> In this website the user can store books names and the author's name. The names will be stored as a list on a separate page of the website.
+> This web application provides users a convenient way to add/remove books into a form of list. Users can store their favorite list of books on separate page. Build with Javascript.
 
 
 ## Built With
